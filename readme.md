@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The objectif of this Epitech Hub's Project is to generate music using a Generative Adversarial Network (GAN) or an Auto Ancoder (AE). The GAN/AE are mainly used to generate image, but I wanted to explore the interest of using them to generate music. The project will be done in Python using Keras.
+The objective of this Epitech Hub's Project is to generate music using a Generative Adversarial Network (GAN) or an Auto Encoder (AE). The GAN/AE are mainly used to generate images, but I wanted to explore the interest of using them to generate music. The project will be done in Python using Keras.
 
 ## Task to complete
 
