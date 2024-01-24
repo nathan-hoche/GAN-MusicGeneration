@@ -2,3 +2,8 @@ midi2audio
 pandas
 ipykernel
 pyarrow
+torch
+torchvision
+torchaudio
+librosa
+setuptools
