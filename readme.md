@@ -21,6 +21,7 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 
 - Python 3.11
 - FluidSynth
+- Juptyer Notebook
 
 > Other requirements are listed in the `requirements.txt` file
 

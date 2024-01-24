@@ -18,7 +18,12 @@ class audioExtractor():
 
     def getSpectrogram(self, waveform):
         return self.spectrogram(waveform)
-                    
+    
+    def segmentAudio(self, waveform, sample_rate, segment_length=10, past_context=5):
+        result = []
+        for i in range(0, waveform.shape[1], segment_length * sample_rate - past_context * sample_rate):
+            result.append(waveform[:, i:i + segment_length * sample_rate])
+        return result
     
     def plot_waveform(self, waveform, sample_rate, title="Waveform", ax=None):
         waveform = waveform.numpy()
@@ -44,10 +49,13 @@ class audioExtractor():
 
 if __name__ == "__main__":
     extractor = audioExtractor()
-    waveform, sample_rate = extractor.load_audio("data/1-100032-A-0.wav")
-    specgram = extractor.getSpectrogram(waveform)
+    waveform, sample_rate = extractor.load_audio("../convertedAudio/1250.wav")
+
+    wavefromSgmt = extractor.segmentAudio(waveform, sample_rate)
+
+    specgram = extractor.getSpectrogram(wavefromSgmt[0])
     fig, axs = plt.subplots(2, 1)
-    extractor.plot_waveform(waveform, sample_rate)
-    extractor.plot_specgram(specgram[0], title="Spectrogram", ylabel="Hz")
+    extractor.plot_waveform(wavefromSgmt[0], sample_rate, ax=axs[0])
+    extractor.plot_specgram(specgram[0], title="Spectrogram", ylabel="Hz", ax=axs[1])
     fig.tight_layout()
-    plt.show()
+    fig.savefig("test.png")
