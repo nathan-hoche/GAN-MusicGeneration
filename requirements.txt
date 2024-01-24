@@ -1,0 +1,4 @@
+midi2audio
+pandas
+ipykernel
+pyarrow
