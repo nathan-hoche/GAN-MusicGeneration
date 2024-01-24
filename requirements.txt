@@ -7,3 +7,5 @@ torchvision
 torchaudio
 librosa
 setuptools
+keras
+tensorflow
