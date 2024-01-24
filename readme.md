@@ -50,6 +50,15 @@ The dataset used for this project is the [Maestro Dataset](https://magenta.tenso
 
 [0] Curtis Hawthorne, Andriy Stasyuk, Adam Roberts, Ian Simon, Cheng-Zhi Anna Huang, Sander Dieleman, Erich Elsen, Jesse Engel, and Douglas Eck. "Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset." In International Conference on Learning Representations, 2019.
 
+### Preprocessing
+
+In order to use the audio files in the GAN, I first try to use spectrogram. But I quickly realized that it was not the best way to do it. I tried to make a spectrogram from a sample of the dataset and reverse the process using torchAudio, but I got this result:
+
+![Spectrogram](data/images/Spectrogram.png)
+
+As you can see, the reconstruction is not good enough to be used in a GAN.
+
+
 ### Model
 
 First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thanks the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understansing on how to implement GAN.
