@@ -1,4 +1,4 @@
-from module.audioExtractor import audioExtractor
+from module.archive.audioExtractor import audioExtractor
 import matplotlib.pyplot as plt
 
 AudioExtractor = audioExtractor()
