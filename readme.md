@@ -8,12 +8,12 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 
 | Task | Time Estimated | Definition of Done | Status |
 | ---- | -------------- |  ------------------ | ------ |
-| Research on the subject | 2 days | [ ] Find 10 interesting papers on how to generate music <br> [ ] Resume for all of them which technique <br> [ ] Find 5 interesting datasets for our case <br> [ ] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
-| Prepare the dataset | 2 days |  [ ] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ❌ |
+| Research on the subject | 2 days | [x] Find 10 interesting papers on how to generate music <br> [-] Resume for all of them which technique <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
+| Prepare the dataset | 2 days |  [-] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ❌ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
-| Convert the GAN to handle music file | 2 days | [ ] Research on how to use music data in a GAN <br> [ ] Implement the GAN on the dataset <br> [ ] Train the GAN in order that it is able to generate music | ❌ |
+| Convert the GAN to handle music file | 2 days | [-] Research on how to use music data in a GAN <br> [-] Implement the GAN on the dataset <br> [-] Train the GAN in order that it is able to generate music | ❌ |
 |-|-|-|-|
-| TOTAL| 8 days | 5/13 DODs | ❌ | 
+| TOTAL| 8 days | 7/13 DODs | ❌ | 
 
 ## How to use the project
 
@@ -78,6 +78,11 @@ First, In order to learn how to create a GAN, I decided to make a GAN which woul
 | MuseGAN | [Github](https://github.com/salu133445/musegan) / [Papers](https://salu133445.github.io/musegan) | 2018 | GAN, MIDI |  |
 | MuseNet | [Papers](https://openai.com/research/musenet) | 2019 | GPT-2, MIDI |  |
 | MidiNet | [Github](https://github.com/RichardYang40148/MidiNet/tree/master/v1) / [Papers](https://arxiv.org/abs/1703.10847) | 2017 | GAN, MIDI |  |
+| IncoGAN | [Papers](https://www.mdpi.com/2227-7390/9/4/387) | 2021 | GAN, AudioFile |  |
+| C-RNN-GAN | [Papers](https://arxiv.org/pdf/1611.09904.pdf) | 2016 | GAN, MIDI |  |
+| Quantized GAN | [Papers](https://arxiv.org/pdf/2204.00604.pdf) | 2022 | GAN, AudioFile |  |
+| WaveNet | [Papers](https://arxiv.org/pdf/1609.03499v2.pdf) | 2016 |  AudioFile |  |
+| WaveGAN | [Papers](https://arxiv.org/pdf/1802.04208v3.pdf) | 2019 | GAN, AudioFile |  |
 
 ## Interesting Dataset
 
@@ -86,3 +91,5 @@ First, In order to learn how to create a GAN, I decided to make a GAN which woul
 | BitMidi | [link](https://bitmidi.com) | MIDI | ALL | 113,000+ |  |
 | Classical Archives | [link](https://www.classicalarchives.com/newca/#!/) | MIDI/Music | Classical | 20,000+ Midi / 934,000 audio file |  |
 | MAESTRO | [link](https://magenta.tensorflow.org/datasets/maestro) | MIDI/Audio | Pianist | 200 hours of performance | |
+| Classical Music Midi | [link](https://www.kaggle.com/datasets/soumikrakshit/classical-music-midi/data?select=bach) | MIDI | Classical | 295 Midi |  |
+| GTZAN Dataset - Music Genre Classification | [link](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification/data) | Audio | All | 1000 audio file |  |
