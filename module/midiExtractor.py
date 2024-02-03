@@ -1,23 +1,41 @@
-import mido
 from music21 import corpus, converter, instrument, note, stream, chord, duration
 # from midi2audio import FluidSynth
 # from midiutil.MidiFile import MIDIFile
-
-import matplotlib.pyplot as plt
-
-NB_NOTES_PER_GROUP = 100
-
 
 class midiExtractor():
     def __init__(self, filename) -> None:
         self.filename = filename
         self.music = converter.parse(filename)
         self.chords = self.music.chordify()
+        self.notes, self.durations = [], []
 
-    def displayChords(self):
-        self.chords.show()
+    def extract(self) :
+        notes = []
+        durations = []
 
+        for element in self.chords.flat:    
+            if isinstance(element, chord.Chord):
+                notes.append('.'.join(n.nameWithOctave for n in element.pitches))
+                durations.append(element.duration.quarterLength)
+
+            if isinstance(element, note.Note):
+                if element.isRest:
+                    notes.append(str(element.name))
+                    durations.append(element.duration.quarterLength)
+                else:
+                    notes.append(str(element.nameWithOctave))
+                    durations.append(element.duration.quarterLength) 
+        self.notes = notes
+        self.durations = durations  
+        return notes, durations
+    
+    def displayData(self):
+        print("| Duration | Note |")
+        print("|----------|------|")
+        for note, duration in zip(self.notes, self.durations):
+            print("|", duration, "\t|", note, "\t|")
 
 if __name__ == "__main__":
-    midiExtractor = midiExtractor("../maestro-v3.0.0-midi/2004/MIDI-Unprocessed_SMF_02_R1_2004_01-05_ORIG_MID--AUDIO_02_R1_2004_05_Track05_wav.midi")
-    midiExtractor.displayChords()
+    midiExtractor = midiExtractor("../select-midi/1238.midi")
+    notes, durations = midiExtractor.extract()
+    midiExtractor.displayData()

@@ -9,3 +9,4 @@ librosa
 setuptools
 keras
 tensorflow
+music21
