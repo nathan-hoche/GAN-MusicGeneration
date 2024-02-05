@@ -9,11 +9,11 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 | Task | Time Estimated | Definition of Done | Status |
 | ---- | -------------- |  ------------------ | ------ |
 | Research on the subject | 2 days | [x] Find 10 interesting papers on how to generate music <br> [-] Resume for all of them which technique <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
-| Prepare the dataset | 2 days |  [-] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ❌ |
+| Prepare the dataset | 2 days |  [x] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ✅ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
-| Convert the GAN to handle music file | 2 days | [-] Research on how to use music data in a GAN <br> [-] Implement the GAN on the dataset <br> [-] Train the GAN in order that it is able to generate music | ❌ |
+| Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [-] Train the GAN in order that it is able to generate music | ❌ |
 |-|-|-|-|
-| TOTAL| 8 days | 7/13 DODs | ❌ | 
+| TOTAL| 8 days | 10/13 DODs | ❌ |
 
 ## How to use the project
 
@@ -35,7 +35,7 @@ git clone git@github.com:nathan-hoche/GAN-MusicGeneration.git
 
 In order to launch the training process, you have multiple steps to follow:
 1. Download the [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro) (In MIDI format)
-2. Launch AudioConverter.py to convert the MIDI files (from a specific composer) to WAV files
+2. Launch SelectMidi.ipynb in order to select the MIDI files you want to use
 3. Launch the training process
 
 ```bash
@@ -52,16 +52,18 @@ The dataset used for this project is the [Maestro Dataset](https://magenta.tenso
 
 ### Preprocessing
 
-In order to use the audio files in the GAN, I first try to use spectrogram. But I quickly realized that it was not the best way to do it. I tried to make a spectrogram from a sample of the dataset and reverse the process using torchAudio, but I got this result:
+In order to use the audio files in the GAN, I first try to use spectrogram. But I quickly realized that it was not the best way to do it. I tried to make a spectrogram from a sample of the dataset and reverse the process using torchAudio (Can be found [here](archive/Reconstruction.ipynb)) , but I got this result:
 
 ![Spectrogram](data/images/Spectrogram.png)
 
-As you can see, the reconstruction is not good enough to be used in a GAN.
+As you can see, the reconstruction is not good enough to be used in a GAN. So I decided to use the MIDI files, which are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way.
 
 
 ### Model
 
-First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thanks the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understansing on how to implement GAN.
+First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thanks the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understansing on how to implement GAN. (Can be found [here](archive/MNIST-GAN.ipynb))
+
+After the GAN creation, I tried to create a simple AutoEncoder in order to understand how to use the MIDI files in the GAN. But, I quickly realized that I needed more understanding on how to make a GAN for music generation. My first try used a simple AutoEncoder with Embedding layers for the notes and duration, but the learning process was not good enough to recover the original music. (Can be found [here](archive/SimpleAutoEncoder.ipynb))
 
 [1] I. J. Goodfellow et al., “Generative Adversarial Networks,” arXiv.org, 2014. https://arxiv.org/abs/1406.2661
 ‌
