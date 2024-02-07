@@ -10,3 +10,4 @@ setuptools
 keras
 tensorflow
 music21
+pypianoroll

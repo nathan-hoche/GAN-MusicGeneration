@@ -8,7 +8,7 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 
 | Task | Time Estimated | Definition of Done | Status |
 | ---- | -------------- |  ------------------ | ------ |
-| Research on the subject | 2 days | [x] Find 10 interesting papers on how to generate music <br> [-] Resume for all of them which technique <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
+| Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [/] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
 | Prepare the dataset | 2 days |  [x] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ✅ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
 | Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [-] Train the GAN in order that it is able to generate music | ❌ |
@@ -58,6 +58,9 @@ In order to use the audio files in the GAN, I first try to use spectrogram. But 
 
 As you can see, the reconstruction is not good enough to be used in a GAN. So I decided to use the MIDI files, which are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way.
 
+In order to counter the problem, I decided to use the MIDI files. The MIDI files are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way. Moreover, I decided to use piano roll representation of the MIDI files, which is a way to know at which time a note is played and for how long. (Can be found [here](archive/PianoRollConvertion.ipynb))
+
+![PianoRoll](data/images/PianoRoll.png)
 
 ### Model
 
@@ -66,25 +69,22 @@ First, In order to learn how to create a GAN, I decided to make a GAN which woul
 After the GAN creation, I tried to create a simple AutoEncoder in order to understand how to use the MIDI files in the GAN. But, I quickly realized that I needed more understanding on how to make a GAN for music generation. My first try used a simple AutoEncoder with Embedding layers for the notes and duration, but the learning process was not good enough to recover the original music. (Can be found [here](archive/SimpleAutoEncoder.ipynb))
 
 [1] I. J. Goodfellow et al., “Generative Adversarial Networks,” arXiv.org, 2014. https://arxiv.org/abs/1406.2661
-‌
-
 
 
 
 ## Interesting Papers
 
-| Name | Link | Year | Technique | Note |
-| ---- | ---- | ---- | --------- | ---- |
-| GANSynth | [Github](https://github.com/magenta/magenta/tree/main/magenta/models/gansynth) / [Papers](https://magenta.tensorflow.org/gansynth) | 2019 | ProgressiveGAN, AudioFile |  |
-| JukeBox | [Github](https://github.com/openai/jukebox/) / [Papers](https://openai.com/research/jukebox) | 2020 | VQ-VAE, AudioFile |  |
-| MuseGAN | [Github](https://github.com/salu133445/musegan) / [Papers](https://salu133445.github.io/musegan) | 2018 | GAN, MIDI |  |
-| MuseNet | [Papers](https://openai.com/research/musenet) | 2019 | GPT-2, MIDI |  |
-| MidiNet | [Github](https://github.com/RichardYang40148/MidiNet/tree/master/v1) / [Papers](https://arxiv.org/abs/1703.10847) | 2017 | GAN, MIDI |  |
-| IncoGAN | [Papers](https://www.mdpi.com/2227-7390/9/4/387) | 2021 | GAN, AudioFile |  |
-| C-RNN-GAN | [Papers](https://arxiv.org/pdf/1611.09904.pdf) | 2016 | GAN, MIDI |  |
-| Quantized GAN | [Papers](https://arxiv.org/pdf/2204.00604.pdf) | 2022 | GAN, AudioFile |  |
-| WaveNet | [Papers](https://arxiv.org/pdf/1609.03499v2.pdf) | 2016 |  AudioFile |  |
-| WaveGAN | [Papers](https://arxiv.org/pdf/1802.04208v3.pdf) | 2019 | GAN, AudioFile |  |
+| Name | Link | Year | Note |
+| ---- | ---- | ---- | ---- |
+| GANSynth | [Github](https://github.com/magenta/magenta/tree/main/magenta/models/gansynth) / [Papers](https://magenta.tensorflow.org/gansynth) | 2019 |  |
+| JukeBox | [Github](https://github.com/openai/jukebox/) / [Papers](https://openai.com/research/jukebox) | 2020 |  |
+| MuseGAN | [Github](https://github.com/salu133445/musegan) / [Papers](https://salu133445.github.io/musegan/pdf/musegan-aaai2018-paper.pdf) | 2018 |  |
+| MuseNet | [Papers](https://openai.com/research/musenet) | 2019 |  |
+| MidiNet | [Github](https://github.com/RichardYang40148/MidiNet/tree/master/v1) / [Papers](https://arxiv.org/abs/1703.10847) | 2017 |  |
+| C-RNN-GAN | [Papers](https://arxiv.org/pdf/1611.09904.pdf) | 2016 |  |
+| WaveNet | [Papers](https://arxiv.org/pdf/1609.03499v2.pdf) | 2016 |  |
+| WaveGAN | [Papers](https://arxiv.org/pdf/1802.04208v3.pdf) | 2019 |  |
+| Music Transformer | [Website](https://magenta.tensorflow.org/music-transformer) / [Papers](https://arxiv.org/pdf/1809.04281.pdf) | 2018 |  |
 
 ## Interesting Dataset
 
