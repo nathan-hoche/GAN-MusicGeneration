@@ -8,12 +8,12 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 
 | Task | Time Estimated | Definition of Done | Status |
 | ---- | -------------- |  ------------------ | ------ |
-| Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [/] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
+| Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [/] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [x] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
 | Prepare the dataset | 2 days |  [x] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ✅ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
 | Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [x] Train the GAN in order that it is able to generate music | ✅ |
 |-|-|-|-|
-| TOTAL| 8 days | 11/13 DODs | ❌ |
+| TOTAL| 8 days | 12/13 DODs | ✅ |
 
 ## How to use the project
 
@@ -44,7 +44,7 @@ In order to generate music, you have to launch the generator.ipynb file. (`/!\ T
 
 ### Dataset
 
-The dataset used for this project is the [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). The reason why I choose this dataset is because I wanted to generate a music in the style of a specific composer. This project can be easily adapted to generate music in another style by using the same dataset. It is also possible to use another dataset, but it will require to adapt the code.
+The dataset used for this project is the [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro). The reason why I choose this dataset is because I wanted to generate a piece of music in the style of a specific composer. This project can be easily adapted to generate music in another style by using the same dataset. It is also possible to use another dataset, but it will require to adapt the code.
 
 [0] Curtis Hawthorne, Andriy Stasyuk, Adam Roberts, Ian Simon, Cheng-Zhi Anna Huang, Sander Dieleman, Erich Elsen, Jesse Engel, and Douglas Eck. "Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset." In International Conference on Learning Representations, 2019.
 
@@ -56,17 +56,17 @@ In order to use the audio files in the GAN, I first try to use spectrogram. But 
 
 As you can see, the reconstruction is not good enough to be used in a GAN. So I decided to use the MIDI files, which are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way.
 
-In order to counter the problem, I decided to use the MIDI files. The MIDI files are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way. Moreover, I decided to use piano roll representation of the MIDI files, which is a way to know at which time a note is played and for how long. (Can be found [here](archive/PianoRollConvertion.ipynb))
+In order to counter the problem, I decided to use the MIDI files. The MIDI files are a better way to represent music (each note is represented by a number), this type of file is used to reproduce music in a digital way. Moreover, I decided to use the piano roll representation of the MIDI files, which is a way to know at which time a note is played and for how long. (Can be found [here](archive/PianoRollConvertion.ipynb))
 
 ![PianoRoll](data/images/PianoRoll.png)
 
 ### Model
 
-First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thanks the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understansing on how to implement GAN. (Can be found [here](archive/MNIST-GAN.ipynb))
+First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thank the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understanding on how to implement GAN. (Can be found [here](archive/MNIST-GAN.ipynb))
 
 After the GAN creation, I tried to create a simple AutoEncoder in order to understand how to use the MIDI files in the GAN. This AutoEncoder use a list of notes at a time T and the durations of each notes to predict the next note. But, I quickly realized that I needed more understanding on how to make a GAN for music generation. My first try used a simple AutoEncoder with Embedding layers for the notes and duration, but the learning process was not good enough to recover the original music. (Can be found [here](archive/SimpleAutoEncoder.ipynb))
 
-After more research, I decide to use piano roll representation of the MIDI files as input of the GAN. In order to do so, I use `pypianoroll` library to convert the MIDI files to piano roll representation. I first tried to recreate an original music from the piano roll representation, and the result was pretty good. (Can be found [here](archive/MusicRecover.ipynb))
+After more research, I decide to use the piano roll representation of the MIDI files as input of the GAN. In order to do so, I use the `pypianoroll` library to convert the MIDI files to piano roll representation. I first tried to recreate an original music from the piano roll representation, and the result was pretty good. (Can be found [here](archive/MusicRecover.ipynb))
 
 | Epoch 10 | Epoch 100 | Epoch 150 |
 | -------- | --------- | --------- |
@@ -86,8 +86,8 @@ I got this result:
 
 As you can see, the result is fine, but need to be improved. I make some observation on the result:
 1. The model has difficulties in order to stay in the same key (repeat a lot the same note). This can possibly be improved by adding recurrent layers in the generator, in order to remember the previous notes.
-2. As the model has difficulties to stay in the same key, currently it converges to a single melody. After ~2000 epochs, the model generate the same melody over and over again. This problem can be fixed when the first problem is fixed.
-3. The model start with a lot of notes and take a lot of time to reduce the number of notes. This can possibly be fixed by adding a dropout layer in the generator, in order to reduce the number of notes at the beginning of the generation.
+2. As the model has difficulties to stay in the same key, currently it converges to a single melody. After ~2000 epochs, the model generates the same melody over and over again. This problem can be fixed when the first problem is fixed.
+3. The model starts with a lot of notes and take a lot of time to reduce the number of notes. This can possibly be fixed by adding a dropout layer in the generator, in order to reduce the number of notes at the beginning of the generation.
 
 ### Conclusion
 
