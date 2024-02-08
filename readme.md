@@ -72,9 +72,13 @@ After more research, I decide to use piano roll representation of the MIDI files
 
 | Epoch 10 | Epoch 100 | Epoch 150 |
 | -------- | --------- | --------- |
-| | | |
+| https://github.com/nathan-hoche/GAN-MusicGeneration/assets/60519037/f166db79-4826-415f-8dfb-099e24816488 | https://github.com/nathan-hoche/GAN-MusicGeneration/assets/60519037/a7bc0866-fd84-42f8-ae5c-74723bb2d716 | https://github.com/nathan-hoche/GAN-MusicGeneration/assets/60519037/f8f2e535-e71e-49bd-919b-be9182979249 |
 
 [1] I. J. Goodfellow et al., “Generative Adversarial Networks,” arXiv.org, 2014. https://arxiv.org/abs/1406.2661
+
+
+
+
 
 
 
