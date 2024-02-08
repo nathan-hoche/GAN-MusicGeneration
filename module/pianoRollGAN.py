@@ -83,8 +83,12 @@ def create_model():
 
 
 class GAN():
-    def __init__(self) -> None:
+    def __init__(self, Train:bool=True) -> None:
         self.discriminator, self.generator, self.combined  = create_model()
+        if not Train:
+            self.generator.load_weights("save/generator_weights.h5")
+            self.discriminator.load_weights("save/discriminator_weights.h5")
+            self.combined.load_weights("save/combined_weights.h5")
 
     def train(self, epochs:int, X_train:list, batch_size:int=128, sample_interval:int=50):
         # Adversarial ground truths
