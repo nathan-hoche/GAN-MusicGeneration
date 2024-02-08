@@ -11,9 +11,9 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 | Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [/] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [-] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
 | Prepare the dataset | 2 days |  [x] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ✅ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
-| Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [-] Train the GAN in order that it is able to generate music | ❌ |
+| Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [x] Train the GAN in order that it is able to generate music | ✅ |
 |-|-|-|-|
-| TOTAL| 8 days | 10/13 DODs | ❌ |
+| TOTAL| 8 days | 11/13 DODs | ❌ |
 
 ## How to use the project
 
@@ -66,9 +66,16 @@ In order to counter the problem, I decided to use the MIDI files. The MIDI files
 
 First, In order to learn how to create a GAN, I decided to make a GAN which would be able to generate mnist images. I want to specially thanks the authors of [this repository](https://github.com/eriklindernoren/Keras-GAN), which was a big help in my understansing on how to implement GAN. (Can be found [here](archive/MNIST-GAN.ipynb))
 
-After the GAN creation, I tried to create a simple AutoEncoder in order to understand how to use the MIDI files in the GAN. But, I quickly realized that I needed more understanding on how to make a GAN for music generation. My first try used a simple AutoEncoder with Embedding layers for the notes and duration, but the learning process was not good enough to recover the original music. (Can be found [here](archive/SimpleAutoEncoder.ipynb))
+After the GAN creation, I tried to create a simple AutoEncoder in order to understand how to use the MIDI files in the GAN. This AutoEncoder use a list of notes at a time T and the durations of each notes to predict the next note. But, I quickly realized that I needed more understanding on how to make a GAN for music generation. My first try used a simple AutoEncoder with Embedding layers for the notes and duration, but the learning process was not good enough to recover the original music. (Can be found [here](archive/SimpleAutoEncoder.ipynb))
+
+After more research, I decide to use piano roll representation of the MIDI files as input of the GAN. In order to do so, I use `pypianoroll` library to convert the MIDI files to piano roll representation. I first tried to recreate an original music from the piano roll representation, and the result was pretty good. (Can be found [here](archive/MusicRecover.ipynb))
+
+| Epoch 10 | Epoch 100 | Epoch 150 |
+| -------- | --------- | --------- |
+| | | |
 
 [1] I. J. Goodfellow et al., “Generative Adversarial Networks,” arXiv.org, 2014. https://arxiv.org/abs/1406.2661
+
 
 
 
