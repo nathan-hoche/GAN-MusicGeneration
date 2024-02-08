@@ -126,12 +126,34 @@
 
 # C-RNN-GAN
 
+| Type | Name |
+| --- | --- |
+| Model | RNN + GAN |
+| DATASET | Create for this project, data get from different website |
+| Type of Generation | tone length, frequency, intensity, and time (not sure)  |
+| Type of Data | Classical MIDI |
+
 > Papers: [Papers](https://arxiv.org/pdf/1611.09904.pdf)
 
 # WaveNet
 
+| Type | Name |
+| --- | --- |
+| Model | WaveNet (based on PixelCNN) |
+| DATASET | The North American English dataset + the Mandarin Chinese
+dataset |
+| Type of Generation | waveform |
+| Type of Data | Audio |
+
 > Papers: [Papers](https://arxiv.org/pdf/1609.03499v2.pdf)
 
 # WaveGAN
+
+| Type | Name |
+| --- | --- |
+| Model | WaveGAN (based on DCGAN) |
+| DATASET | Speech Commands Dataset, Drum sound effects, Bird vocalizations, Piano, Large vocab speech (TIMIT) |
+| Type of Generation | waveform |
+| Type of Data | Audio |
 
 > Papers: [Papers](https://arxiv.org/pdf/1802.04208v3.pdf)

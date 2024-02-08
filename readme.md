@@ -8,12 +8,12 @@ The objective of this Epitech Hub's Project is to generate music using a Generat
 
 | Task | Time Estimated | Definition of Done | Status |
 | ---- | -------------- |  ------------------ | ------ |
-| Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [/] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [x] Describe the content of the dataset and list the type music that can be generated with each dataset | ❌ |
+| Research on the subject | 2 days | [x] Find 8 interesting papers on how to generate music <br> [x] Summarizes their techniques <br> [x] Find 5 interesting datasets for our case <br> [x] Describe the content of the dataset and list the type music that can be generated with each dataset | ✅ |
 | Prepare the dataset | 2 days |  [x] Format the dataset in order to be used in the training process of the desired GAN <br> [x] Handle error case in the dataset (iex: if MIDI, handle empty tracks) <br> [x] Handle error case in the dataset (if music not encoded in the same way) | ✅ |
 | Implement a GAN or a AE | 2 days |  [x] Research on how to implement the choosen GAN (put sources) <br> [x] Implement the GAN in a simple case (such as MINST) <br> [x] Train the GAN in order that it is able to generate image | ✅ |
 | Convert the GAN to handle music file | 2 days | [x] Research on how to use music data in a GAN <br> [x] Implement the GAN on the dataset <br> [x] Train the GAN in order that it is able to generate music | ✅ |
 |-|-|-|-|
-| TOTAL| 8 days | 12/13 DODs | ✅ |
+| TOTAL| 8 days | 13/13 DODs | ✅ |
 
 ## How to use the project
 
@@ -106,6 +106,8 @@ The result is fine, but need to be improved in order to be used in a real case. 
 | WaveNet | [Papers](https://arxiv.org/pdf/1609.03499v2.pdf) | 2016 |  |
 | WaveGAN | [Papers](https://arxiv.org/pdf/1802.04208v3.pdf) | 2019 |  |
 | Music Transformer | [Website](https://magenta.tensorflow.org/music-transformer) / [Papers](https://arxiv.org/pdf/1809.04281.pdf) | 2018 |  |
+
+> More details about the papers can be found [here](ressource/interestingPapers.md)
 
 ## Interesting Dataset
 
