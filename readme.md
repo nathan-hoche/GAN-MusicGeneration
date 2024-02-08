@@ -72,12 +72,28 @@ After more research, I decide to use piano roll representation of the MIDI files
 
 | Epoch 10 | Epoch 100 | Epoch 150 |
 | -------- | --------- | --------- |
-| | | |
+| [here](data/wav/result-1Sample-10epochs.wav) | [here](data/wav/result-1Sample-100epochs.wav) | [here](data/wav/result-1Sample-150epochs.wav) |
 
-[1] I. J. Goodfellow et al., “Generative Adversarial Networks,” arXiv.org, 2014. https://arxiv.org/abs/1406.2661
+So, I decided to use this representation in the GAN. I used the same architecture as the one used in the MNIST GAN, but I changed the input and output shape of the generator and the discriminator. The generator takes a random noise as input and output a piano roll representation of the music. The discriminator takes a piano roll representation of the music as input and output a binary value (0 or 1) which represent if the music is real or fake. With this architecture, I was able to generate music. (Can be found [here](main.ipynb) or [here](generator.ipynb)).
 
+In order to train the model, I decided to use 100 samples of the same music. The result was fine, but need to be improved in order to be used in a real case. (Can be found [here](main.ipynb)).
 
+### Results
 
+I got this result:
+
+| Epoch 1000 | Epoch 1500 | Epoch 2000 | Epoch 3500 |
+| ---------- | ---------- | ---------- | ---------- |
+| [here](data/wav/result-100Samples-1000epochs.wav) | [here](data/wav/result-100Samples-1500epochs.wav) | [here](data/wav/result-100Samples-2000epochs.wav) | [here](data/wav/result-100Samples-3500epochs.wav) |
+
+As you can see, the result is fine, but need to be improved. I make some observation on the result:
+1. The model has difficulties in order to stay in the same key (repeat a lot the same note). This can possibly be improved by adding recurrent layers in the generator, in order to remember the previous notes.
+2. As the model has difficulties to stay in the same key, currently it converges to a single melody. After ~2000 epochs, the model generate the same melody over and over again. This problem can be fixed when the first problem is fixed.
+3. The model start with a lot of notes and take a lot of time to reduce the number of notes. This can possibly be fixed by adding a dropout layer in the generator, in order to reduce the number of notes at the beginning of the generation.
+
+### Conclusion
+
+The result is fine, but need to be improved in order to be used in a real case. I will continue to work on this project in order to improve the result. I will try to implement a memory in the generator, in order to remember the previous notes. Also, I will try to reduce the number of notes at the beginning of the generation.
 
 ## Interesting Papers
 
