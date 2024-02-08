@@ -2,12 +2,12 @@ midi2audio
 pandas
 ipykernel
 pyarrow
-torch
-torchvision
-torchaudio
-librosa
-setuptools
+# torch
+# torchvision
+# torchaudio
+# librosa
+# setuptools
 keras
 tensorflow
-music21
+# music21
 pypianoroll

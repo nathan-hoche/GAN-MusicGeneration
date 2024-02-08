@@ -19,10 +19,6 @@ class PianoRollExtractor:
     
     def trim(self, start:int, end:int) -> None:
         self.pianoRoll.trim(start, end * self.pianoRoll.resolution)
-    
-    # def getPartial(self, start:int, end:int) -> pypianoroll.Multitrack:
-    #     track = pypianoroll.Track(self.pianoRoll.tracks[0].pianoroll)
-    #     return pypianoroll.Multitrack(tracks=[track])
 
     def get_piano_roll(self, start:int=2, end:int=None) -> pypianoroll.Multitrack:
         if end is None:

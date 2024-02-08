@@ -24,7 +24,7 @@ def build_generator():
     model.add(Dense(1024))
     model.add(LeakyReLU(alpha=0.2))
     model.add(BatchNormalization(momentum=0.8))
-    model.add(Dense(np.prod(DATA_SHAPE), activation='tanh'))
+    model.add(Dense(np.prod(DATA_SHAPE), activation='sigmoid'))
     model.add(Reshape(DATA_SHAPE))
 
     model.summary()
@@ -100,7 +100,6 @@ class GAN():
             # Generate a batch of new images
             noise = np.random.normal(0, 1, (batch_size, LATENT_DIM))
             gen_imgs = self.generator.predict(noise)
-            print(gen_imgs.shape)
 
             # Train the discriminator
             d_loss_real = self.discriminator.train_on_batch(imgs, valid) # Learn to recognize real images
