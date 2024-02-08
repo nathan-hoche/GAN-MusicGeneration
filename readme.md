@@ -36,11 +36,9 @@ git clone git@github.com:nathan-hoche/GAN-MusicGeneration.git
 In order to launch the training process, you have multiple steps to follow:
 1. Download the [Maestro Dataset](https://magenta.tensorflow.org/datasets/maestro) (In MIDI format)
 2. Launch SelectMidi.ipynb in order to select the MIDI files you want to use
-3. Launch the training process
+3. Launch the training process using the main.ipynb file (`/!\ Think to change the path of the desired MIDI file for the sampling`)
 
-```bash
-python3 main.py
-```
+In order to generate music, you have to launch the generator.ipynb file. (`/!\ The model has to be trained before.`)
 
 ## Project Details
 
